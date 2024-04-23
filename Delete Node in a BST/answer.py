@@ -38,6 +38,7 @@ def deleteNode(root, key: int):
         return root
     if (c_n.left and not c_n.right) or (not c_n.left and c_n.right):
         if p_n:
+            
             if p_n.left == c_n:
                 p_n.left = c_n.left
             else:
@@ -46,6 +47,7 @@ def deleteNode(root, key: int):
             if c_n.left:
                 return c_n.left
             return c_n.right
+        return root
     if (c_n.left and c_n.right) or (not c_n.left and not c_n.right):
         if root.val == key:
             root = TreeNode(min_v(c_n), c_n.left,
@@ -81,8 +83,8 @@ def min_v(root):
     return r
 
 
-tree = TreeNode(5, None, TreeNode(3))
-# tree = TreeNode(5, TreeNode(3, TreeNode(2), TreeNode(4)), TreeNode(6, None, TreeNode(7)))
+# tree = TreeNode(5, None, TreeNode(3))
+tree = TreeNode(5, TreeNode(3, None, TreeNode(4)), TreeNode(6))
 # tree = TreeNode(5, TreeNode(3, TreeNode(2, TreeNode(8)), TreeNode(4)), TreeNode(6, TreeNode(7)))
 print(tree)
-print(deleteNode(tree, 5))
+print(deleteNode(tree, 3))
