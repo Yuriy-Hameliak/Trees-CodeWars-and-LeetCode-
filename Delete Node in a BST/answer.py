@@ -84,12 +84,15 @@ def min_v(root):
     if p_n == root:
         p_n.right = c_n.right
     else:
-        p_n.left = None
+        if c_n.right:
+            p_n.left = c_n.right
+        else:
+            p_n.left = None
     return r
 
 
 # tree = TreeNode(5, None, TreeNode(3))
-tree = TreeNode(5, TreeNode(3, None, TreeNode(4)), TreeNode(6))
-# tree = TreeNode(5, TreeNode(3, TreeNode(2, TreeNode(8)), TreeNode(4)), TreeNode(6, TreeNode(7)))
+# tree = TreeNode(5, TreeNode(3, None, TreeNode(4)), TreeNode(6))
+tree = TreeNode(5, TreeNode(3, TreeNode(2, TreeNode(8)), TreeNode(4)), TreeNode(6, TreeNode(7,None,TreeNode(18)), TreeNode(9)))
 print(tree)
-print(deleteNode(tree, 3))
+print(deleteNode(tree, 5))
