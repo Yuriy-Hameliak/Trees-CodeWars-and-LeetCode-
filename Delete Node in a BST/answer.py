@@ -38,11 +38,16 @@ def deleteNode(root, key: int):
         return root
     if (c_n.left and not c_n.right) or (not c_n.left and c_n.right):
         if p_n:
-            
             if p_n.left == c_n:
-                p_n.left = c_n.left
+                if c_n.left:
+                    p_n.left = c_n.left
+                else:
+                    p_n.left = c_n.right
             else:
-                p_n.right = c_n.left
+                if c_n.left:
+                    p_n.right = c_n.left
+                else:
+                    p_n.right = c_n.right
         else:
             if c_n.left:
                 return c_n.left
